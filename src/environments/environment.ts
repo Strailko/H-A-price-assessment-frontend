@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:5000/api"
+  baseUrl: "https://h-a-price-assessment-backend.herokuapp.com/api"
 };
 
 /*
