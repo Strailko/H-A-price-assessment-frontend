@@ -118,6 +118,7 @@ export class LandingComponent implements OnInit {
           .subscribe((data) => {
             if(data) {
               this.result = data;
+              this.result.price = Math.trunc(this.result.price) + "€";
               this.loading = false;
             }
           }, () => {
@@ -127,10 +128,12 @@ export class LandingComponent implements OnInit {
     }
     else if(this.firstFormGroup.value['selectedType'] === this.type.FLAT) {
       this.flatObj = this.flat.value;
+      this.flatObj.number_of_rooms = String(this.flatObj.number_of_rooms);
       this.dataService.getFlatPrice(this.flatObj)
           .subscribe((data) => {
             if(data) {
               this.result = data;
+              this.result.price = Math.trunc(this.result.price) + "€";
               this.loading = false;
             }
           }, () => {
@@ -140,10 +143,12 @@ export class LandingComponent implements OnInit {
     }
     else if(this.firstFormGroup.value['selectedType'] === this.type.HOUSE) {
       this.houseObj = this.house.value;
+      this.houseObj.number_of_rooms = String(this.houseObj.number_of_rooms);
       this.dataService.getHousePrice(this.houseObj)
           .subscribe((data) => {
             if(data) {
               this.result = data;
+              this.result.price = Math.trunc(this.result.price) + "€";
               this.loading = false;
             }
           }, () => {
