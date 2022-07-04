@@ -69,14 +69,17 @@
                                 <mat-option value="Струја">
                                     Струја
                                 </mat-option>
-                                <mat-option value="Дрва">
-                                    Дрва
-                                </mat-option>
                                 <mat-option value="Централно">
                                     Централно
                                 </mat-option>
+                                <mat-option value="Соларнаенергија">
+                                    Соларна енергија
+                                </mat-option>
                                 <mat-option value="Друго">
                                     Друго
+                                </mat-option>
+                                <mat-option value="Нема">
+                                    Нема
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -113,7 +116,7 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Број на бањи</mat-label>
-                            <input matInput type="number" formControlName="number_of_bathrooms" placeholder="Пример: 3" required>
+                            <input matInput type="text" formControlName="number_of_bathrooms" placeholder="Пример: 3" required>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Подрум</mat-label>
@@ -146,7 +149,7 @@
                 <div class="flex-center">
                     <form [formGroup]="car">
                         <ng-template matStepLabel>Пополни ги информациите за автомобилот</ng-template>
-                        <mat-form-field appearance="fill">
+                        <!-- <mat-form-field appearance="fill">
                             <mat-label>Латитуда</mat-label>
                             <input matInput type="number" formControlName="latitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
@@ -155,7 +158,7 @@
                             <mat-label>Лонгитуда</mat-label>
                             <input matInput type="number" formControlName="longitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
-                        </mat-form-field>
+                        </mat-form-field> -->
                         <mat-form-field appearance="fill">
                             <mat-label>Марка</mat-label>
                             <input matInput type="text" formControlName="brand" placeholder="Пример: Фиат" required>
@@ -249,7 +252,26 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Број на спратови</mat-label>
-                            <input matInput type="number" formControlName="number_of_floors" placeholder="Пример: 3" required>
+                            <mat-select matInput formControlName="number_of_floors" required>
+                                <mat-option value="Приземје">
+                                    Приземје
+                                </mat-option>
+                                <mat-option value="Високоприземје">
+                                    Високо приземје
+                                </mat-option>
+                                <mat-option value="2спрата">
+                                    1 спрат
+                                </mat-option>
+                                <mat-option value="2спрата">
+                                    2 спрата
+                                </mat-option>
+                                <mat-option value="3спрата">
+                                    3 спрата
+                                </mat-option>
+                                <mat-option value=">=4спрата">
+                                    Повеќе од 3 спрата
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Греење</mat-label>
@@ -257,14 +279,17 @@
                                 <mat-option value="Струја">
                                     Струја
                                 </mat-option>
-                                <mat-option value="Дрва">
-                                    Дрва
-                                </mat-option>
                                 <mat-option value="Централно">
                                     Централно
                                 </mat-option>
+                                <mat-option value="Соларнаенергија">
+                                    Соларна енергија
+                                </mat-option>
                                 <mat-option value="Друго">
                                     Друго
+                                </mat-option>
+                                <mat-option value="Нема">
+                                    Нема
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -275,23 +300,118 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Тип на домот</mat-label>
-                            <input matInput type="text" formControlName="type_of_house" placeholder="Пример: Дуплекс-Лепенакуќа" required>
+                            <mat-select matInput formControlName="type_of_house" required>
+                                <mat-option value="Мултисемејнакуќа">
+                                    Мулти-семејна куќа
+                                </mat-option>
+                                <mat-option value="Двo-семејнакуќа">
+                                    Двo-семејна куќа
+                                </mat-option>
+                                <mat-option value="Дуплекс-Лепенакуќа">
+                                    Дуплекс / лепена куќа
+                                </mat-option>
+                                <mat-option value="Еднасемејнакуќа-Самостојна">
+                                    Едно-семејна куќа
+                                </mat-option>
+                                <mat-option value="Половинакуќа">
+                                    Половина куќа
+                                </mat-option>
+                                <mat-option value="Останато">
+                                    Останато
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Состојба</mat-label>
-                            <input matInput type="text" formControlName="state" placeholder="Пример: Реновиран" required>
+                            <mat-select matInput formControlName="state" required>
+                                <mat-option value="стара">
+                                    Стара
+                                </mat-option>
+                                <mat-option value="нова">
+                                    Нова
+                                </mat-option>
+                                <mat-option value="реновирана">
+                                    Реновирана
+                                </mat-option>
+                                <mat-option value="воградба">
+                                    Во градба
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Опрема</mat-label>
-                            <input matInput type="text" formControlName="equipment" placeholder="Пример: Празен" required>
+                            <mat-select matInput formControlName="equipment" required>
+                                <mat-option value="наместен">
+                                    Наместена
+                                </mat-option>
+                                <mat-option value="полунаместен">
+                                    Полунаместена
+                                </mat-option>
+                                <mat-option value="празен">
+                                    Празна
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Број на балкони</mat-label>
-                            <input matInput type="text" formControlName="number_of_balconies" placeholder="Пример: 1Балкон" required>
+                            <mat-select matInput formControlName="number_of_balconies" required>
+                                <mat-option value="1Тераса">
+                                    1 тераса
+                                </mat-option>
+                                <mat-option value="2Балкони">
+                                    2 балкони
+                                </mat-option>
+                                <mat-option value="3Балкони">
+                                    3 балкони
+                                </mat-option>
+                                <mat-option value="4Балкони">
+                                    4 балкони
+                                </mat-option>
+                                <mat-option value="5Балкони">
+                                    5 балкони
+                                </mat-option>
+                                <mat-option value="Нема">
+                                    Нема балкон
+                                </mat-option>
+                                <mat-option value="Повеќеод5балкони">
+                                    Повеќе од 5 балкони
+                                </mat-option>
+                                <mat-option value="Тераса+1Балкон">
+                                    Тераса и 1 балкон
+                                </mat-option>
+                                <mat-option value="Тераса+2Балкони">
+                                    Тераса и 2 балкони
+                                </mat-option>
+                                <mat-option value="Тераса+3Балкони">
+                                    Тераса и 3 балкони
+                                </mat-option>
+                                <mat-option value="Тераса+4Балкони">
+                                    Тераса и 4 балкони
+                                </mat-option>
+                                <mat-option value="Тераса+5Балкони">
+                                    Тераса и 5 балкони
+                                </mat-option>
+                                <mat-option value="Тераса+Повеќеод5балкони">
+                                    Тераса и повеќе од 5 балкони
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Број на бањи</mat-label>
-                            <input matInput type="number" formControlName="number_of_bathrooms" placeholder="Пример: 3" required>
+                            <mat-select matInput formControlName="number_of_bathrooms" required>
+                                <mat-option value="2">
+                                    Од 1 до 2 бањи
+                                </mat-option>
+                                <mat-option value="3">
+                                    3 бањи
+                                </mat-option>
+                                <mat-option value="4">
+                                    4 бањи
+                                </mat-option>
+                                <mat-option value="Повеќеод4">
+                                    Повеќе од 4 бањи
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Подрум</mat-label>
@@ -306,11 +426,70 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Број на паркинг / гаража</mat-label>
-                            <input matInput type="text" formControlName="number_of_parkings_garage" placeholder="Пример: 1Паркинг" required>
+                            <mat-select matInput formControlName="number_of_parkings_garage" required>
+                                <mat-option value="Бројнапаркинг/гаража_1Паркинг">
+                                    1 паркинг место
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_2Паркингместа">
+                                    2 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_3Паркингместа">
+                                    3 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_4Паркингместа">
+                                    4 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Повеќеод4паркингместа">
+                                    Повеќе од 4 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Гаража+1Паркинг">
+                                    Гаража и 1 паркинг место
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Гаража+2Паркингместа">
+                                    Гаража и 2 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Гаража+3Паркингместа">
+                                    Гаража и 3 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Гаража+4Паркингместа">
+                                    Гаража и 4 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Гаража+Повеќеод4паркингместа">
+                                    Гаража и повеќе од 4 паркинг места
+                                </mat-option>
+                                <mat-option value="Бројнапаркинг/гаража_Нема">
+                                    Нема
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Ориентација</mat-label>
-                            <input matInput type="text" formControlName="orientation" placeholder="Пример: Североисток" required>
+                            <mat-select matInput formControlName="orientation" required>
+                                <mat-option value="Исток">
+                                    Исток
+                                </mat-option>
+                                <mat-option value="Запад">
+                                    Запад
+                                </mat-option>
+                                <mat-option value="Север">
+                                    Север
+                                </mat-option>
+                                <mat-option value="Југ">
+                                    Југ
+                                </mat-option>
+                                <mat-option value="Северозапад">
+                                    Северозапад
+                                </mat-option>
+                                <mat-option value="Североисток">
+                                    Североисток
+                                </mat-option>
+                                <mat-option value="Југозапад">
+                                    Југозапад
+                                </mat-option>
+                                <mat-option value="Југоисток">
+                                    Југоисток
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <div class="flex">
                             <button mat-button matStepperPrevious><mat-icon>arrow_backward</mat-icon> Назад</button>
@@ -327,7 +506,7 @@
                     <mat-spinner *ngIf="loading"></mat-spinner>
                     <p *ngIf="!loading">Цената изнесува:</p>
                     <div *ngIf="!loading">
-                        <h1>{{result['price']}}€</h1>
+                        <h1>{{result['price']}}</h1>
                     </div>
                     <div class="flex">
                         <span class="spacer"></span>
