@@ -138,13 +138,14 @@ export class LandingComponent implements OnInit {
   }
 
   initForms() {
+    
     this.firstFormGroup = this._formBuilder.group({
       selectedType: ['', Validators.required],
     });
     
     this.car = this._formBuilder.group({
-      latitude: ['', Validators.required],
-      longitude: ['', Validators.required],
+      // latitude: ['', Validators.required],
+      // longitude: ['', Validators.required],
       brand: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', Validators.required],
@@ -200,6 +201,8 @@ export class LandingComponent implements OnInit {
   calculate() {
     if(this.firstFormGroup.value['selectedType']  === this.type.CAR) {
       this.carObj = this.car.value;
+      this.carObj.latitude = 41.9959385;
+      this.carObj.longitude = 21.4312731;
       this.carObj.registered_until = Number(String(Number(new Date(this.carObj.registered_until).getMonth()) + 1).concat(String(new Date(this.carObj.registered_until).getFullYear())));
       this.dataService.getCarPrice(this.carObj)
           .subscribe((data) => {

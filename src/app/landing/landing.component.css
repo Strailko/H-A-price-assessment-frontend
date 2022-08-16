@@ -17,6 +17,10 @@ hr {
     padding: 10em 0;
 }
 
+#map {
+    height: 100%;
+}
+
 .content {
     width: 100%;
     display: flex;
