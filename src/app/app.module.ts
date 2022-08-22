@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { LayoutModule } from '@angular/cdk/layout';
     FormsModule,
     LayoutModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCGhZ7M1axQyZKgiyj5OoaIn6ekHExUTk0',
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

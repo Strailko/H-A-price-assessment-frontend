@@ -75,6 +75,19 @@ form mat-form-field {
     flex: 1 1 auto;
 }
 
+.map-heading {
+    font-size: large;
+    padding-bottom: 0.2em;
+}
+
+.map {
+    padding: 1em;
+}
+
+agm-map {
+    height: 300px;
+}
+
 @media screen and (max-device-width: 720px){
     h1 {
         font: 400 14px/22px Roboto, "Helvetica Neue", sans-serif;
