@@ -5,12 +5,7 @@
         <mat-stepper [orientation]="orientation" [linear]="true" #stepper>
             <mat-step [editable]="true" [optional]="false" [stepControl]="firstFormGroup">
                 <div class="flex-center">
-
-                    <form [formGroup]="firstFormGroup">
-
-                        <input class="example" type="text" value="17.9787,81.0352" />
-                        <div id="mapContainer"></div>
-                        
+                    <form [formGroup]="firstFormGroup">                        
                         <ng-template matStepLabel>Одбери тип</ng-template>
                         <mat-form-field appearance="fill">
                             <mat-label>Тип</mat-label>
@@ -49,7 +44,28 @@
                 <div class="flex-center">
                     <form [formGroup]="flat">
                         <ng-template matStepLabel>Пополни ги информациите за станот</ng-template>
-                        <mat-form-field appearance="fill">
+                        <div class="map">
+                            <div class="map-heading">Избери локација</div>
+                            <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="onMapClicked($event)">
+
+                                <agm-marker 
+                                [latitude]="marker.lat"
+                                [longitude]="marker.lng"
+                                [label]="marker.label"
+                                [markerDraggable]="marker.draggable"
+                                (dragEnd)="markerDragEnd($event)">
+                                
+                                    <agm-info-window>
+                                        <div>Latitude: {{latitude}}</div><br>
+                                        <div>Longitude: {{longitude}}</div>
+                                    </agm-info-window>
+                                    
+                                </agm-marker>
+
+                            </agm-map>
+                        </div>
+
+                        <!-- <mat-form-field appearance="fill">
                             <mat-label>Латитуда</mat-label>
                             <input matInput type="number" formControlName="latitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
@@ -58,7 +74,7 @@
                             <mat-label>Лонгитуда</mat-label>
                             <input matInput type="number" formControlName="longitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
-                        </mat-form-field>
+                        </mat-form-field> -->
                         <mat-form-field appearance="fill">
                             <mat-label>Број на соби</mat-label>
                             <input matInput type="number" formControlName="number_of_rooms" placeholder="Пример: 3" required>
@@ -334,6 +350,8 @@
                             <input matInput type="number" formControlName="longitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
                         </mat-form-field> -->
+                        <div style="padding: 0.5em;">
+                        </div>
                         <mat-form-field appearance="fill">
                             <mat-label>Марка</mat-label>
                             <input type="text" matInput formControlName="brand" [matAutocomplete]="brand" placeholder="Пример: Fiat" required>
@@ -519,7 +537,27 @@
                 <div class="flex-center">
                     <form [formGroup]="house">
                         <ng-template matStepLabel>Пополни ги информациите за куќата</ng-template>
-                        <mat-form-field appearance="fill">
+                        <div class="map">
+                            <div class="map-heading">Избери локација</div>
+                            <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="onMapClicked($event)">
+
+                                <agm-marker 
+                                [latitude]="marker.lat"
+                                [longitude]="marker.lng"
+                                [label]="marker.label"
+                                [markerDraggable]="marker.draggable"
+                                (dragEnd)="markerDragEnd($event)">
+                                
+                                    <agm-info-window>
+                                        <div>Latitude: {{latitude}}</div><br>
+                                        <div>Longitude: {{longitude}}</div>
+                                    </agm-info-window>
+                                    
+                                </agm-marker>
+
+                            </agm-map>
+                        </div>
+                        <!-- <mat-form-field appearance="fill">
                             <mat-label>Латитуда</mat-label>
                             <input matInput type="number" formControlName="latitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
@@ -528,7 +566,7 @@
                             <mat-label>Лонгитуда</mat-label>
                             <input matInput type="number" formControlName="longitude" placeholder="Пример: 42.152" required>
                             <span matSuffix>°</span>
-                        </mat-form-field>
+                        </mat-form-field> -->
                         <mat-form-field appearance="fill">
                             <mat-label>Број на соби</mat-label>
                             <input matInput type="number" formControlName="number_of_rooms" placeholder="Пример: 3" required>
